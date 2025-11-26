@@ -1,0 +1,38 @@
+[
+    {
+        "ParameterKey": "ProjectName",
+        "ParameterValue": "lab_1"
+    },
+    {
+        "ParameterKey": "VpcCIDR",
+        "ParameterValue": "10.0.0.0/16"
+    },
+    {
+        "ParameterKey": "PublicSubnetCIDR",
+        "ParameterValue": "10.0.1.0/24"
+    },
+    {
+        "ParameterKey": "PrivateSubnetCIDR",
+        "ParameterValue": "10.0.2.0/24"
+    },
+    {
+        "ParameterKey": "AvailabilityZone",
+        "ParameterValue": "us-east-1a"
+    },
+    {
+        "ParameterKey": "MyPublicIP",
+        "ParameterValue": ""
+    },
+    {
+        "ParameterKey": "KeyPairName",
+        "ParameterValue": ""
+    },
+    {
+        "ParameterKey": "InstanceType",
+        "ParameterValue": "t3.micro"
+    },
+    {
+        "ParameterKey": "AmiId",
+        "ParameterValue": "ami-0cff7528ff583bf9a"
+    }
+]
