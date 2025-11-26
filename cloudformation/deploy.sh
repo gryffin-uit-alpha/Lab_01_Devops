@@ -1,6 +1,5 @@
 #!/bin/bash
-# CloudFormation Stack Deployment Script
-# This script deploys the infrastructure using CloudFormation
+
 
 set -e
 
@@ -9,15 +8,12 @@ TEMPLATE_FILE="infrastructure.yaml"
 PARAMETERS_FILE="parameters.json"
 REGION="us-east-1"
 
-echo "======================================"
 echo "CloudFormation Stack Deployment"
-echo "======================================"
+echo 
 echo "Stack Name: $STACK_NAME"
 echo "Region: $REGION"
-echo "======================================"
-echo ""
+echo 
 
-# Check if stack exists
 if aws cloudformation describe-stacks --stack-name $STACK_NAME --region $REGION >/dev/null 2>&1; then
     echo "Stack exists. Updating..."
     aws cloudformation update-stack \
@@ -46,14 +42,6 @@ else
         --region $REGION
 fi
 
-echo ""
-echo "======================================"
-echo "Stack deployment completed!"
-echo "======================================"
-echo ""
-
-# Get outputs
-echo "Stack Outputs:"
 aws cloudformation describe-stacks \
     --stack-name $STACK_NAME \
     --region $REGION \

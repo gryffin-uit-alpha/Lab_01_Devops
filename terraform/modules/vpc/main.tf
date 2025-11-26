@@ -40,9 +40,9 @@ resource "aws_eip" "nat_eip" {
 
 resource "aws_nat_gateway" "nat" {
   allocation_id = aws_eip.nat_eip.id
-  subnet_id     = aws_subnet.public.id # NAT GW phải nằm ở Public Subnet!
+  subnet_id     = aws_subnet.public.id
 
-  depends_on = [aws_internet_gateway.igw] # Đợi IGW tạo xong mới tạo NAT
+  depends_on = [aws_internet_gateway.igw]
   tags       = { Name = "my-nat-gw" }
 }
 
@@ -60,7 +60,6 @@ resource "aws_route_table" "public" {
   tags = { Name = "public-rt" }
 }
 
-# Route Table cho Private Subnet (Đi qua NAT Gateway)
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.main.id
 

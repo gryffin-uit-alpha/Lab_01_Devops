@@ -40,8 +40,12 @@ cd cloudformation
 ./deploy.sh
 ```
 
-### Step 3: Connect
+### Step 3: Add SSH key and Connect
 ```bash
+# Add SSH key to agent for forwarding
+ssh-add <YOUR_KEY_PAIR_NAME>.pem
+
+# Connect to bastion host
 ssh -A -i <YOUR_KEY_PAIR_NAME>.pem ec2-user@<PUBLIC_IP>
 ```
 
@@ -71,8 +75,12 @@ When asked, enter:
 - **my_ip**: `116.110.xx.xx`
 - **key_pair_name**: `lab_01`
 
-### Step 3: Connect
+### Step 3: Add SSH key and Connect
 ```bash
+# Add SSH key to agent for forwarding
+ssh-add <YOUR_KEY_PAIR_NAME>.pem
+
+# Connect to bastion host
 ssh -A -i <YOUR_KEY_PAIR_NAME>.pem ec2-user@<PUBLIC_IP>
 ```
 
@@ -97,17 +105,22 @@ terraform destroy
 
 ##  Check
 
-### SSH from local → Bastion
+### Step 1: Add SSH key to agent
 ```bash
-ssh -A -i lab_01.pem ec2-user@<BASTION_PUBLIC_IP>
+ssh-add <YOUR_KEY_PAIR_NAME>.pem
 ```
 
-### SSH from Bastion → Private Server
+### Step 2: SSH from local → Bastion
+```bash
+ssh -A -i <YOUR_KEY_PAIR_NAME>.pem ec2-user@<BASTION_PUBLIC_IP>
+```
+
+### Step 3: SSH from Bastion → Private Server
 ```bash
 ssh ec2-user@<PRIVATE_IP>
 ```
 
-### Test internet from Private Server
+### Step 4: Test internet from Private Server
 ```bash
 ping google.com
 ```

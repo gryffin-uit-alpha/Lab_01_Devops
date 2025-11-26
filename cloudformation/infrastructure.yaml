@@ -46,9 +46,7 @@ Parameters:
     Description: AMI ID for Amazon Linux 2 in us-east-1
 
 Resources:
-  # ===========================
   # VPC Module Resources
-  # ===========================
 
   VPC:
     Type: AWS::EC2::VPC
@@ -153,9 +151,7 @@ Resources:
       SubnetId: !Ref PrivateSubnet
       RouteTableId: !Ref PrivateRouteTable
 
-  # ===========================
   # Security Groups Module Resources
-  # ===========================
 
   PublicSecurityGroup:
     Type: AWS::EC2::SecurityGroup
@@ -197,9 +193,7 @@ Resources:
         - Key: Name
           Value: private-sg
 
-  # ===========================
   # EC2 Module Resources
-  # ===========================
 
   PublicBastionHost:
     Type: AWS::EC2::Instance

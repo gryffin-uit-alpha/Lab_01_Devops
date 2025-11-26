@@ -35,7 +35,6 @@ resource "aws_security_group" "private_sg" {
     to_port         = 22
     protocol        = "tcp"
     security_groups = [aws_security_group.public_sg.id]
-    # Lưu ý: Ở đây dùng security_groups ID chứ không dùng cidr_blocks
   }
 
   # Egress: Cho phép ra ngoài (qua NAT Gateway)
